@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import * as React from 'react';
 import {
   Platform,
   StyleSheet,
@@ -19,8 +19,9 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+interface Props {};
+
+export default class App extends React.Component<Props> {
   render() {
     return (
       <View style={styles.container}>
