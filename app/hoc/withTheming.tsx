@@ -1,16 +1,18 @@
+import * as React from 'react';
+
 import ThemeWrapper from '../theme/ThemeWrapper';
 import { hoistStatics } from 'recompact';
 
-const withThemeWrapper = hoistStatics(
-  (ComposedComponent: React.ComponentType) => {
-    const WithThemeWrapper = props => (
-      <ThemeWrapper>
-        <ComposedComponent {...props} />
-      </ThemeWrapper>
-    );
+interface WithThemeWrapperInjectedProps {}
 
-    return WithThemeWrapper;
-  },
-);
+const withThemeWrapper = hoistStatics(ComposedComponent => {
+  const WithThemeWrapper = (props: WithThemeWrapperInjectedProps) => (
+    <ThemeWrapper>
+      <ComposedComponent {...props} />
+    </ThemeWrapper>
+  );
+
+  return WithThemeWrapper;
+});
 
 export default withThemeWrapper;
